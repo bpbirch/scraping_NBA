@@ -55,7 +55,6 @@ nbaDict['76ers'] = 'PHI' # had to enter separately because of syntax used to def
 #%%
 # Beginning of code pertaining to team data
 #%%
-# need to write code that identifies beginning page for team
 def findYearPage(team, year):
     """
     Finds URL for given team and year on basketball-reference.com
@@ -81,7 +80,6 @@ if __name__ == '__main__':
     print(address)
 
 #%%
-# now work on finding the 'next season' tag to get to the next season on website
 def findNextSeason(bs_object):
     '''
     Finds next season URL 
@@ -221,9 +219,6 @@ def getSeasonList(playerPage):
     div = identifier.parent.parent.parent
     seasonHeader = div.findNext('ul') # when dealing with tag, not bs object, we use findNext, instead of find 
     seasonList = list(seasonHeader.findAll('a'))
-    #print(seasonList)
-    # we're losing 2008-2009 here (2009 label), and I can't see why
-    #seasonList = seasonHeader.children
     if 'playoffs' in seasonList[-1].attrs['href']: # this gets rid of playoff link
         seasonList.pop()
 
