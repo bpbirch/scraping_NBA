@@ -328,20 +328,15 @@ if __name__ == '__main__':
     kobeDict = getCareerDict('Bryant', 'Kobe', 2008, 2012)
     lakersDict = getTeamDict('Lakers', 2008, 2012)
 
-    for key in kobeDict:
-        print(key)
+    for year, stats in kobeDict.items():
+        print('Kobe Bryant', year)
+        pp(stats[:10]) # printing the first ten games in each season
+        print()
 
-    for key in lakersDict:
-        print(key)
+    for year, stats in lakersDict.items():
+        print('Lakers', year)
+        pp(stats[:10])
+        print()
 
-    for (kob, lak) in zip(kobeDict.items(), lakersDict.items()):
-        print('kobe')
-        pp(kob[1][:10]) # printing first ten entries for each year
-        print() 
-        print('lakers')
-        pp(lak[1][:10])
-        # I'm zipping here just for the sake of easily comparing and making sure games match up
-        # since we input the same years, the games should match up
-        # in other words, each dictionary should contain the same games, but one pertaining to team, 
-        # and the other pertaining to player
+
 
